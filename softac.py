@@ -136,7 +136,7 @@ def main(arg):
         q_optimizer = optim.Adam(softq_critic.parameters(), lr=3e-4) 
         actor_optimizer = optim.Adam(SAC_actor.parameters(), lr=3e-4) 
 
-        train_rewards, steps = run_experiment(SAC_actor, buffer, v_critic, target_v_critic, softq_critic, env, arg.freq, v_optimizer, q_optimizer, actor_optimizer, arg.discount, arg.max, arg.n_epi)
+        reward, steps = run_experiment(SAC_actor, buffer, v_critic, target_v_critic, softq_critic, env, arg.freq, v_optimizer, q_optimizer, actor_optimizer, arg.discount, arg.max, arg.n_epi)
         train_rewards.append(reward)
         num_steps.append(steps)
 
